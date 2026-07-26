@@ -1,0 +1,156 @@
+[llm]
+base_url = "https://api.deepseek.com"
+api_key = ""
+model = "deepseek-v4-flash"
+temperature = 0.1
+timeout_seconds = 120
+stream = true
+
+[llm_profiles.deepseek]
+base_url = "https://api.deepseek.com"
+api_key = ""
+model = "deepseek-v4-flash"
+temperature = 0.1
+timeout_seconds = 120
+stream = true
+
+[llm_profiles.qwen]
+base_url = ""
+api_key = ""
+model = "qwen3-coder-plus"
+temperature = 0.1
+timeout_seconds = 300
+stream = true
+
+[llm_profiles.gpt]
+base_url = ""
+api_key = ""
+model = "gpt-5.4"
+temperature = 0.1
+timeout_seconds = 300
+stream = true
+max_retries = 3
+
+[github]
+# GitHub personal access token. Keep it empty in committed config files.
+# Prefer setting DBGENIE_GITHUB_TOKEN in the local environment.
+token = ""
+per_page = 50
+
+[dataset]
+min_stars = 50
+min_forks = 3
+min_contributors = 3
+min_tables = 3
+active_within_days = 365
+# Store only selected files needed for schema/evidence/test construction.
+# Do not materialize full repositories into the final dataset.
+materialization_mode = "selected_files"
+max_evidence_files_per_repo = 80
+max_file_bytes = 500000
+min_application_score = 4
+# Contributor count requires an extra API request per repository. Disable it for
+# broad candidate collection; final samples will be manually verified.
+require_contributors_check = false
+
+# Recommended screening should use multiple focused queries instead of scanning
+# all GitHub repositories by stars. Keep thresholds conservative at this stage;
+# tune them after measuring acceptance rate on each query family.
+screening_queries = [
+  "django app language:Python stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "django project language:Python stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "django ecommerce language:Python stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "django cms language:Python stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "django booking language:Python stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "flask app language:Python stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "fastapi app language:Python stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "rails app language:Ruby stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "rails project language:Ruby stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "rails ecommerce language:Ruby stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "laravel app language:PHP stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "laravel project language:PHP stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "laravel ecommerce language:PHP stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "symfony app language:PHP stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "prisma app language:TypeScript stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "nextjs prisma language:TypeScript stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "nestjs prisma language:TypeScript stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "nestjs typeorm language:TypeScript stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "sequelize app language:JavaScript stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "spring boot application language:Java stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "spring boot ecommerce language:Java stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "spring boot crm language:Java stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "entity framework application language:C# stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "asp.net core application language:C# stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "gorm application language:Go stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "entgo application language:Go stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "payment app language:TypeScript stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "billing app language:TypeScript stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "ecommerce app language:TypeScript stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "education platform language:TypeScript stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "crm app language:TypeScript stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "inventory app language:TypeScript stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "booking app language:TypeScript stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "healthcare app language:TypeScript stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "open source ecommerce language:Python stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "open source ecommerce language:PHP stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "open source ecommerce language:JavaScript stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "open source ecommerce language:TypeScript stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "open source crm language:Python stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "open source crm language:PHP stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "open source crm language:Java stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "open source erp language:Python stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "open source erp language:PHP stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "open source inventory language:Python stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "open source booking language:Python stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "open source education language:Python stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "open source lms language:Python stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "open source healthcare language:Python stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "open source forum language:Ruby stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "open source forum language:PHP stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "self hosted app language:Python stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "self hosted app language:Ruby stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "self hosted app language:PHP stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "self hosted app language:TypeScript stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "postgresql app language:Python stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "postgresql app language:TypeScript stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "mysql app language:PHP stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "sqlite app language:Python stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "flyway spring boot application language:Java stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "liquibase spring boot application language:Java stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "alembic app language:Python stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "ef core application language:C# stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "ruby on rails app postgresql stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "laravel mysql app stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "topic:django stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "topic:rails stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "topic:laravel stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "topic:prisma stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "topic:nestjs stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "topic:spring-boot stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "topic:fastapi stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "topic:ecommerce stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "topic:cms stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "topic:crm stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "topic:erp stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "topic:inventory stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "topic:booking stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "topic:education stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "topic:lms stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "topic:healthcare stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "topic:forum stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "topic:analytics stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "topic:postgresql stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "topic:mysql stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "topic:sqlite stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "topic:sql-server stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "topic:mariadb stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "topic:flyway stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "topic:liquibase stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "topic:alembic stars:>50 pushed:>2025-05-22 archived:false fork:false",
+  "topic:database stars:>50 pushed:>2025-05-22 archived:false fork:false"
+]
+
+[evaluation]
+target_dbms = "postgresql"
+use_atlas = true
+work_dir = "runs"
