@@ -1,0 +1,13 @@
+{
+  "requirement": "The database must support the captured Koel schema subset for users, roles, permissions, songs, playlist-song links, favorites, interactions, podcast-user subscriptions, themes, embeds, duplicate uploads, transcodes, and AI agent conversations. It must store role and permission assignments, ordered favorites, user-specific themes, embeddable public shares, duplicate upload references, song and transcode file-size metadata, and agent conversation messages with tool calls, tool results, usage metadata, and timestamps.",
+  "workload": [
+    "Retrieve a user by their email address for authentication purposes.",
+    "Retrieve all songs belonging to a specific album, ordered by disc number, track number, and song title.",
+    "Retrieve all songs favorited by the current user, ordered by the position column in the favorites table.",
+    "Retrieve the most recently played songs for a user, based on the last_played_at timestamp in interactions, limited to a small number (e.g., 8).",
+    "Retrieve all themes created by a specific user, ordered by creation date descending.",
+    "Retrieve all duplicate upload records associated with a given user, ordered by creation date descending.",
+    "Find transcode records associated with any of the given song IDs."
+  ],
+  "target_dbms": "MySQL"
+}
