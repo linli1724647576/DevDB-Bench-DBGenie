@@ -70,7 +70,7 @@ RSchema is the closest benchmark in terms of its generation target. Table 3 comp
 | 🟦 RSchema [4] | 4.59 | 21.90 |
 | 🟩 **DevDB-Bench** | **21.10** | **171.35** |
 
-DevDB-Bench contains substantially larger schemas on average. These counts describe structural scale rather than establishing task difficulty on their own. Together with the source and scope comparisons, they characterize the benchmark's emphasis on database structures drawn from real applications.
+DevDB-Bench contains substantially larger schemas on average.  Together with the source and scope comparisons, they characterize the benchmark's emphasis on database structures drawn from real applications.
 
 The 51 DevDB-Bench instances span 13 application domains and six DBMS dialects: PostgreSQL, MySQL, SQLite, SQL Server, MariaDB, and DuckDB. Reference designs contain an average of 23.27 foreign keys and 19.25 indexes, and the largest design contains 122 tables. This coverage complements the table and column statistics by capturing relationships, physical-design structures, and dialect diversity.
 
