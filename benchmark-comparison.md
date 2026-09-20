@@ -26,7 +26,7 @@ Table 1 summarizes the tasks addressed by each benchmark. Scale is reported in t
 
 Spider, BIRD, and Spider 2.0 primarily evaluate queries or SQL workflows over existing databases. Their tasks assume that the database structures are already available and therefore do not directly assess the ability to derive a database design from application requirements.
 
-RSchema, introduced by Text2Schema, moves beyond this setting by making the logical schema itself the generation target. Its instances are constructed from mixed sources, including synthesized scenarios and Web-based database-design materials such as tutorials and examples. It focuses on requirement-to-logical-schema generation, whereas DevDB-Bench is grounded in application repositories and targets database designs for application development.
+**RSchema, introduced by Text2Schema, moves beyond this setting by making the logical schema itself the generation target. Its instances are constructed from mixed sources, including synthesized scenarios and Web-based database-design materials such as tutorials and examples.** It focuses on requirement-to-logical-schema generation, whereas **DevDB-Bench is grounded in application repositories and targets database designs for application development.**
 
 ### 🟧 Software-development benchmarks
 
@@ -72,7 +72,7 @@ RSchema is the closest benchmark in terms of its generation target. Table 3 comp
 
 DevDB-Bench contains substantially larger schemas on average. These counts describe structural scale rather than establishing task difficulty on their own. Together with the source and scope comparisons, they characterize the benchmark's emphasis on database structures drawn from real applications.
 
-The 51 DevDB-Bench instances span **13 application domains** and **six DBMS dialects**: PostgreSQL, MySQL, SQLite, SQL Server, MariaDB, and DuckDB. Reference designs contain an average of **23.27 foreign keys** and **19.25 indexes**, and the largest design contains **122 tables**. This coverage complements the table and column statistics by capturing relationships, physical-design structures, and dialect diversity.
+The 51 DevDB-Bench instances span 13 application domains and six DBMS dialects: PostgreSQL, MySQL, SQLite, SQL Server, MariaDB, and DuckDB. Reference designs contain an average of 23.27 foreign keys and 19.25 indexes, and the largest design contains 122 tables. This coverage complements the table and column statistics by capturing relationships, physical-design structures, and dialect diversity.
 
 ## 4. Positioning of DevDB-Bench
 
