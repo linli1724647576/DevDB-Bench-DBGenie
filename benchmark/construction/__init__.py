@@ -1,2 +1,0 @@
-"""Dataset construction pipeline."""
-
